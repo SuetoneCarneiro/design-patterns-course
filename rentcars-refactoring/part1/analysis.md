@@ -17,3 +17,12 @@ Além disso, com uma nova classificação, seria necessário criar uma nova lóg
 ### 2) E quando houver reajuste de preço? O código está pronto para executar facilmente um novo esquema de pontos de alugador frequente?
 
 NÃO. Um novo esquema de pontos requer criação manual da lógica dentro da classe cliente.
+
+# Comentários detalhados
+- O método extrato() é muito grande e faz tudo sozinho: determina preço de aluguel, calcula pontos de locador frequente...
+- Não há responsabilidades assumidas pelas classes Carro e Locador. Elas estão servindo apenas como encapsuladoras de dados. Talvez fosse interessante delegar responsabilidades presentes na classe Cliente para essas outras duas.
+- Expert information violation: o extrato tem múltiplas responsabilidades que não deveriam caber a ele. O método deveria apenas montar a saída do extrato, como um relatório
+- Baixa coesão => forte acoplamento
+- O código é ruim de manter e alterar. Seria difícil extendê-lo (ex.: emitir um extrato em formato HTML -> reuso comprometido)
+- As classificações de carros podem mudar com o tempo. 
+- Viola os princípios SOLID: responsabilidade única, open/closed e inversão de dependência.
