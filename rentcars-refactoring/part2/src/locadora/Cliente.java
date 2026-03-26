@@ -63,27 +63,27 @@ public class Cliente {
 	}
 	
 	public Double valorDeUmaLocacao(Locacao locacao) {
-		double valorCorrente = 0.0;
+		double valorDaLocacao = 0.0;
 
 		switch(locacao.getCarro().getCodigoDoPreco()) {
 		case Automovel.BASICO: // R$ 90.00 por dia
-			valorCorrente += locacao.getDiasAlugado() * 90.0;
+			valorDaLocacao += locacao.getDiasAlugado() * 90.0;
 			break;
 
 		case Automovel.FAMILIA: // R$ 130.00 por dia
-			valorCorrente += locacao.getDiasAlugado() * 130.0;
+			valorDaLocacao += locacao.getDiasAlugado() * 130.0;
 			break;
 
 		case Automovel.LUXO: // R$ 200.00 por dia
-			valorCorrente += locacao.getDiasAlugado() * 200.0;
+			valorDaLocacao += locacao.getDiasAlugado() * 200.0;
 			
 			// Adiciona um desconto de 10% se alugar o carro por mais de 4 dias
 			if(locacao.getDiasAlugado() > 4) {
-				valorCorrente *= 0.9;
+				valorDaLocacao *= 0.9;
 			}
 			break;
 
 		}
-		return valorCorrente;
+		return valorDaLocacao;
 	}
 }
