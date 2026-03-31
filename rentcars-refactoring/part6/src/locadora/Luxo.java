@@ -1,7 +1,7 @@
 package locadora;
 
 public class Luxo extends Classificacao {
-
+    
     public int getCodigoDoPreco(){
         return 2;
     }
@@ -14,11 +14,4 @@ public class Luxo extends Classificacao {
         return valor;
     }
 
-    @Override
-    public int getPontosDeAlugadorFrequente(int diasAlugado) {
-        if (diasAlugado > 2) {
-            return 2;
-        }
-        return 1;
-    }
 }
